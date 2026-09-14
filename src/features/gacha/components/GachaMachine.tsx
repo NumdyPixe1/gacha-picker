@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import type { AppDispatch } from "../../../store/store";
 import { logItem, rollGacha } from "../../../store/slices/gacha/gachaSlices";
+import gachaBodyImg from "../assets/gacha-body.png";
+import gachaHandleImg from "../assets/gacha-handle.png";
 
 interface GachaMachineProps {
     totalItems: number;
@@ -48,7 +50,7 @@ export default function GachaMachine({ totalItems }: GachaMachineProps) {
     }
 
     return (<div className="relative w-154 h-170 flex justify-center items-center  rounded-xl p-4" >
-        <img src="src\assets\gacha-body.png" alt="Gacha body" className="select-none absolute inset-0 w-full h-full object-contain pointer-events-none" />
+        <img src={gachaBodyImg} alt="Gacha body" className="select-none absolute inset-0 w-full h-full object-contain pointer-events-none" />
 
         <AnimatePresence>
             {isEmpty && (
@@ -95,7 +97,7 @@ export default function GachaMachine({ totalItems }: GachaMachineProps) {
             )}
         </AnimatePresence>
 
-        <motion.img src="src\assets\gacha-handle.png" alt="Gacha handle" className="select-none absolute w-30 h-30 cursor-pointer z-10 top-[64%] left-[40%]"
+        <motion.img src={gachaHandleImg} alt="Gacha handle" className="select-none absolute w-30 h-30 cursor-pointer z-10 top-[64%] left-[40%]"
             animate={{ rotate: rotation }}
             onClick={handleClick}
             transition={{ duration: 0.5, ease: "easeInOut" }}
