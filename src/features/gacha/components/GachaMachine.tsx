@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import type { AppDispatch } from "../../../store/store";
 import { logItem, rollGacha } from "../../../store/slices/gacha/gachaSlices";
-import gachaBodyImg from "@/assets/gacha-body.png"
-import gachaHandleImg from "@/assets/gacha-handle.png";
+import gachaBodyImg from "../../../assets/gacha-body.png"
+import gachaHandleImg from "../../../assets/gacha-handle.png";
 
 interface GachaMachineProps {
     totalItems: number;
