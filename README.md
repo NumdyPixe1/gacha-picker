@@ -1,4 +1,21 @@
-# React + TypeScript + Vite
+
+# <a href="https://numdypixe1.github.io/gacha-picker/">Gacha Picker</a> 
+<!-- > [!NOTE] -->
+<!-- > An interactive web-based random name picker inspired by gacha machine mechanics. -->
+<!-- > <br>โปรเจกต์เริ่มต้นพัฒนาทักษะ React.js ตัวแรก ที่สร้างขึ้นเพื่อเรียนรู้และฝึกฝนการจัดการ State Management -->
+
+## Screenshot
+
+An interactive web-based random name picker inspired by gacha machine mechanics.
+
+
+## Get started
+
+```bash
+npm run dev
+```
+
+<!-- # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
@@ -72,4 +89,4 @@ export default defineConfig([
   },
 ])
 
-```
+``` -->
