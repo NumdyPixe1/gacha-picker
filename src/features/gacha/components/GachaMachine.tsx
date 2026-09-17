@@ -34,7 +34,7 @@ export default function GachaMachine({ totalItems }: GachaMachineProps) {
         };
     }, [isEmpty]);
 
-    const handleClick = () => {
+    const handleRollGacha = () => {
         if (totalItems === 0) {
             setIsEmpty(true);
             return;
@@ -99,7 +99,7 @@ export default function GachaMachine({ totalItems }: GachaMachineProps) {
 
         <motion.img src={gachaHandleImg} alt="Gacha handle" className="select-none absolute w-30 h-30 cursor-pointer z-10 top-[64%] left-[40%]"
             animate={{ rotate: rotation }}
-            onClick={handleClick}
+            onClick={handleRollGacha}
             transition={{ duration: 0.5, ease: "easeInOut" }}
             whileHover={{ scale: isSpinning ? 1 : 0.95 }}
             style={{ pointerEvents: isSpinning ? "none" : "auto", }}

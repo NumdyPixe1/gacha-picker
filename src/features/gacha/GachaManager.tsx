@@ -12,12 +12,15 @@ export default function GachaManagerPage() {
     const bulkText = inventory.map((item) => item.name).join('\n');
 
     const handleOnChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-        const line = e.target.value.split('\n');
-        const updatedInventory = line.map((line, index) => ({
+        // แบ่งข้อความทุกครั้งที่ขึ้นบรรทัดใหม่ 
+        const lines = e.target.value.split('\n');
+
+        const updatedInventory = lines.map((line, index) => ({
             // เช็กว่า inventory ไม่ได้เป็น null ก่อนเข้า id
             id: inventory[index]?.id || Date.now.toString() + index,
             name: line
         }));
+
         // ส่ง Array ชุดใหม่ไปแทนที่ State เดิมใน Redux
         dispatch(setItems(updatedInventory));
     }

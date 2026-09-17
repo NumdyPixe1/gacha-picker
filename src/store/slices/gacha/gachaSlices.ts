@@ -14,6 +14,7 @@ interface GachaLog {
 // 1. กำหนด Type ของ State
 interface GachaState {
     inventory: GachaItem[];
+    validItems: GachaItem[]
     // ที่สุ่มได้ล่าสุด
     obtainedItems: GachaItem | null;
     // ประวัติการสุ่มทั้งหมด
@@ -22,6 +23,7 @@ interface GachaState {
 
 // 2. กำหนด ค่าเริ่มต้น (Initial State)
 const initialState: GachaState = {
+    validItems: [],
     inventory: [
     ],
     obtainedItems: null,
@@ -55,16 +57,26 @@ const gachaSlice = createSlice({
         // รับ index ที่สุ่มได้มาจาก payload
         // ไม่ต้องมี action.payload เพราะว่า Logic การสุ่มสุ่มจบภายใน Redux State เอง โดยไม่ต้องรับค่าอะไรส่งมาจากฝั่ง UI 
         rollGacha: (state) => {
-            if (state.inventory.length === 0) {
-                // reset ค่าไอเทมล่าสุด
-                state.obtainedItems = null;
-                return
-            };
+            // ตรวจาอบว่ามีข้อความว่างไหม
+            const validItems = state.inventory.filter((item) => item.name.trim() !== '');
 
-            const randomItem = Math.floor(Math.random() * state.inventory.length);
-            state.obtainedItems = state.inventory[randomItem];
-            // ตัดไอเทมที่สุ่มได้ออกไป
-            state.inventory.splice(randomItem, 1);
+            // ตรวจสอบว่ามีรายการที่ใช้สุ่มได้จริงไหม
+            if (validItems.length === 0) {
+                state.obtainedItems = null;
+                return;
+            }
+            // สุ่ม index ของ ไอเทมชิ้นนี้
+            const randomIndex = Math.floor(Math.random() * validItems.length);
+            const selectedItem = validItems[randomIndex];
+
+            // บันทึกผลลัพธ์
+            state.obtainedItems = selectedItem;
+
+            // หา index ที่ตรงกับไอเทมชิ้นนี้ใน state.inventory เดิม เพื่อทำการลบออก
+            const targetIndex = state.inventory.findIndex((item) => item.id === selectedItem.id);
+            if (targetIndex !== -1) {
+                state.inventory.splice(targetIndex, 1);
+            }
         }
     }
 });

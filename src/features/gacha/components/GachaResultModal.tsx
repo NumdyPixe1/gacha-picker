@@ -1,8 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useMemo } from "react";
 
-
-
 interface GachaResultModalProps {
     item: any
     isOpen: boolean;
