@@ -77,7 +77,7 @@ export default function GachaMachine({ totalItems }: GachaMachineProps) {
                             !
                         </div>
                         <p className="mb-2 text-xs font-bold uppercase tracking-[0.24em] text-amber-300">
-                            เครื่องกาชาว่างเปล่า
+                            ตู้กาชาว่างเปล่า
                         </p>
                         <h2 id="empty-gacha-title" className="mb-3 text-2xl font-bold text-white">
                             ยังไม่มีรายชื่อให้สุ่ม

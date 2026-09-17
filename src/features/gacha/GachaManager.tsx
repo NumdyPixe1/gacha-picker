@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import type { AppDispatch, RootState } from "../../store/store";
 import { setItems } from "../../store/slices/gacha/gachaSlices";
 import Log from "./components/Log"
+import ResetBtn from "./components/ResetBtn";
 
 // หน้า Gacha
 export default function GachaManagerPage() {
@@ -26,17 +27,20 @@ export default function GachaManagerPage() {
     }
 
     return (
-        <aside className=" fixed top-0 right-0 z-50 flex h-full w-80 flex-col border-l border-slate-800 bg-slate-900 p-6 text-slate-100 shadow-2xl transition-transform duration-300 ease-in-out">
-
-            <div className="w-full flex flex-col gap-4 overflow-y-auto pr-1">
-
-                <textarea rows={10} name="message"
+        <aside className=" fixed bottom-4 left-1/2 -translate-x-1/2 z-50 flex max-h-[45vh] w-[92%] max-w-lg flex-col rounded-2xl border border-slate-800 bg-slate-900/95 p-4 text-slate-100 shadow-2xl backdrop-blur-md transition-all duration-300 ease-in-out sm:top-0 sm:right-0 sm:left-auto sm:translate-x-0 sm:h-full sm:w-80 sm:max-w-none sm:max-h-none sm:rounded-none sm:border-l sm:bg-slate-900 sm:p-6">
+            <div className=" w-full  gap-4 overflow-y-auto pr-1">
+                <textarea rows={4} name="message"
                     onChange={handleOnChange}
                     value={bulkText}
-                    className=" w-full px-4 py-3 text-base text-gray-800 placeholder-gray-400 bg-white border border-gray-300 rounded-lg outline-none resize-y transition-all duration-200 hover:border-gray-400 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/15">
+                    className="w-full px-4 py-3 text-sm sm:text-base text-gray-800 placeholder-gray-400 bg-white border border-gray-300 rounded-lg outline-none resize-none transition-all duration-200   focus:ring-blue-500/15">
                 </textarea>
             </div>
-            <Log />
+            <div className="shrink-0 mb-3">
+                <ResetBtn />
+            </div>
+            <div className="h-32 shrink-0 overflow-y-auto rounded-lg border border-slate-800 bg-slate-950 p-2 text-xs">
+                <Log />
+            </div>
         </aside >
     )
 }

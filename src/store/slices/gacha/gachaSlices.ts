@@ -77,6 +77,17 @@ const gachaSlice = createSlice({
             if (targetIndex !== -1) {
                 state.inventory.splice(targetIndex, 1);
             }
+        },
+
+        // ล้างค่า
+        resetGacha: (state) => {
+            if (state.obtainedItems !== null) {
+                // ยัด Object กลับเข้า Array     
+                state.inventory.push(state.obtainedItems);
+                state.obtainedItems = null;
+                state.log = [];
+            }
+
         }
     }
 });
@@ -106,5 +117,5 @@ const gachaSlice = createSlice({
 
 
 // เรียกใช้ setRandomItem เท่านั้น
-export const { rollGacha, setItems, logItem } = gachaSlice.actions;
+export const { rollGacha, resetGacha, setItems, logItem } = gachaSlice.actions;
 export default gachaSlice.reducer;

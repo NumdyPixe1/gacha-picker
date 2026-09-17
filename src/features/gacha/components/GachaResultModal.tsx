@@ -31,7 +31,7 @@ export default function GachaResultModal({ item, isOpen, onClose }: GachaResultM
             {isOpen && (
                 // Backdrop พื้นหลังสีดำจางๆ
                 <motion.div
-                    className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 select-none"
+                    className="fixed inset-0 z-[60] bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 select-none"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
@@ -69,7 +69,7 @@ export default function GachaResultModal({ item, isOpen, onClose }: GachaResultM
 
                     {/* Card แสดงผลไอเทมที่สุ่มได้ */}
                     <motion.div
-                        className="bg-slate-900 border-2 border-blue-400 p-6 rounded-2xl shadow-2xl flex flex-col items-center max-w-sm w-full mx-4"
+                        className="sm:p-6 bg-slate-900 border-2 border-blue-400 p-6 rounded-2xl shadow-2xl flex flex-col items-center max-w-sm w-full mx-4"
                         initial={{ scale: 0.5, opacity: 0, y: 50 }}
                         animate={{ scale: 1, opacity: 1, y: 0 }}
                         exit={{ scale: 0.8, opacity: 0 }}

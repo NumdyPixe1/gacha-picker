@@ -7,10 +7,11 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
     return (<>
-        <div className="min-h-screen text-slate-100 flex flex-col justify-between bg-cover bg-center bg-no-repeat bg-fixed selection:bg-indigo-500 selection:text-white"
+        <div className="min-h-screen w-full bg-cover bg-center bg-no-repeat bg-fixed text-slate-100 selection:bg-indigo-500 selection:text-white"
             style={{ backgroundImage: `url(${bgImage})` }}>
             <div className="min-h-screen bg-slate-950/70  text-slate-100 flex flex-col justify-between selection:bg-indigo-500 selection:text-white">
-                <main className=" flex-1 flex flex-col items-center px-4 py-8">
+                <main className=" flex flex-1 flex-col items-center justify-start sm:justify-center px-4 pt-6 pb-36 overflow-y-auto">
+
                     {children}
                 </main>
 
